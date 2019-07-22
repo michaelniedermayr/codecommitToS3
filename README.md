@@ -1,6 +1,6 @@
 # codecommitToS3
 
-###Update
+### Update
 If the environmental variable 'branch' is defined, all files of that branch are uploaded to the S3 bucket
 every time a new commit is pushed.
 
@@ -12,7 +12,7 @@ afterwards. This way only modified or new files will be uploaded to the S3 bucke
 
 Thx to [handk85](https://github.com/handk85) for this improvement.
 
-###Tutorial
+### Tutorial
 Code hosted on AWS CodeCommit Git-repo is deployed to AWS S3-bucket by an AWS Lambda function.
 
 Find more information here: https://medium.com/@michael.niedermayr/using-aws-codecommit-and-lambda-for-automatic-code-deployment-to-s3-bucket-b35aa83d029b
