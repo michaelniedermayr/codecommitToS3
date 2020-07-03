@@ -2,9 +2,8 @@ import boto3
 import os
 import mimetypes
 
-
 # returns a list of the files in the branch or commit
-def get_blob_list(codecommit, repository, afterCommitSpecifier, beforeCommitSpecifier=None, ):
+def get_blob_list(codecommit, repository, afterCommitSpecifier, beforeCommitSpecifier=None):
     args = {'repositoryName': repository, 'afterCommitSpecifier': afterCommitSpecifier}
 
     if beforeCommitSpecifier:
@@ -13,8 +12,9 @@ def get_blob_list(codecommit, repository, afterCommitSpecifier, beforeCommitSpec
     response = codecommit.get_differences(**args)
 
     blob_list = [difference['afterBlob'] for difference in response['differences']]
-    while 'nextToken' in response:
-        args['nextToken'] = response['nextToken']
+
+    while 'NextToken' in response:
+        args['NextToken'] = response['NextToken']
         response = codecommit.get_differences(**args)
         blob_list += [difference['afterBlob'] for difference in response['differences']]
 
